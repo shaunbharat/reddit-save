@@ -1,0 +1,17 @@
+# The npm module dependencies.
+node_modules/
+
+# The unzipped Reddit archive should be in this directory.
+data/
+
+# The .env file contains sensitive information and should not be committed.
+*.env
+
+# The resulting posts directory contains the downloaded content and data.
+posts/
+
+# The gallery-dl binary.
+gallery-dl*
+
+# A sandbox directory for testing.
+dev/**

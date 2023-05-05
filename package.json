@@ -1,0 +1,36 @@
+{
+  "private": true,
+  "name": "reddit-save",
+  "version": "1.0.0",
+  "description": "A simple script that saves Reddit post content.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node-esm index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shaunbharat/reddit-save.git"
+  },
+  "author": "Shaun Bharat",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shaunbharat/reddit-save/issues"
+  },
+  "homepage": "https://github.com/shaunbharat/reddit-save#readme",
+  "devDependencies": {
+    "@types/node": "^18.16.3",
+    "@types/snoowrap": "^1.19.0",
+    "reddit-oauth-helper": "^0.3.2",
+    "typescript": "^5.0.4"
+  },
+  "dependencies": {
+    "axios": "^1.4.0",
+    "csv": "^6.2.11",
+    "dotenv": "^16.0.3",
+    "snoowrap": "^1.15.2",
+    "steno": "^3.0.0",
+    "ts-node": "^10.9.1"
+  }
+}
