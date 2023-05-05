@@ -153,7 +153,7 @@ async function DownloadAll(filename: string) {
             if (!Post.content.thumbnail.includes('http')) {
                 try { await DownloadThumbnail(Post.content.thumbnail, post_directory); } catch (error) { } // ignore thumbnail if it fails, or if there is no link
             }
-            await exec(`gallery-dl "${Post.content.url}" -D "${post_directory}"`); // uppercase D for exact directory
+            await exec(`gallery-dl "${Post.content.url}" -D "${post_directory}/content"`); // uppercase D for exact directory
             console.log(`[${Post.data.id}] Downloaded. ${remaining} remaining.`);
         } catch (error) {
             failed.push(id + ',' + 'https://www.reddit.com' + Post.data.permalink); // no extra slash because permalink already has one
