@@ -135,8 +135,15 @@ async function DownloadAll(filename: string) {
         }
 
         try {
+            let post_directory: string;
+            if (await Post.data.author == '[deleted]') {
+                // If the post was deleted, put it in a separate folder to be discarded (post data is still saved just in case)
+                post_directory = output_directory + '/deleted/' + Post.data.subreddit + '/' + Post.data.id;
+            } else {
+                post_directory = output_directory + '/' + Post.data.subreddit + '/' + Post.data.id;
+            }
+
             // Create post directory if it doesn't exist
-            const post_directory = output_directory + '/' + Post.data.subreddit + '/' + Post.data.id;
             fs.mkdirSync(post_directory, { recursive: true });
 
             // Write post data to file
