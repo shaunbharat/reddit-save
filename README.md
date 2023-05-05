@@ -1,4 +1,4 @@
-# reddit-save
+# [reddit-save](https://github.com/shaunbharat/reddit-save)
 
 A simple script that saves Reddit post content.
 
@@ -62,4 +62,6 @@ It's possible I might create (if I get bored) a viewer part to this project in t
 
 ## License
 
-At the moment, this project is not licensed. All rights reserved.
+Copyright (c) 2023 [Shaun Bharat](https://github.com/shaunbharat).
+
+This project is licensed under the [MIT](https://github.com/shaunbharat/reddit-save/blob/main/LICENSE) license.
