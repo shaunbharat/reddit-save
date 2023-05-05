@@ -54,6 +54,12 @@ A simple script that saves Reddit post content.
 
 By default, the script will save all posts to the `posts` folder, organized with subdirectories for subreddits. Basic information will be saved to `post.json`, in the post's specific directory. A thumbnail will also be saved, if available.
 
+## Next
+
+The script saves enough information for compatibility with any future projects or updates.
+
+It's possible I might create (if I get bored) a viewer part to this project in the future, that can display the saved content in a nice way. I might also add the ability to make custom post lists, since Reddit only has the saved posts list which is limited to 1000 posts.
+
 ## License
 
 At the moment, this project is not licensed. All rights reserved.
