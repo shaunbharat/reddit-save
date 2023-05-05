@@ -3,21 +3,19 @@ import { parse } from 'csv/sync';
 import { Writer } from 'steno';
 import axios from 'axios';
 import dotenv from 'dotenv';
-
 import fs from 'node:fs';
 import os from 'node:os';
 import { exec } from 'node:child_process';
-
 import module from 'module';
-const require = module.createRequire(import.meta.url);
+const require = module.createRequire(import.meta.url); // loading JSON files with require()
 const { version } = require('./package.json');
 
 // Load .env file, or generate one if it doesn't exist
 if (dotenv.config().error) {
-    console.log('No .env file found.\nGenerating default config...');
+    console.log('No .env file found. Generating default config...');
     await new Writer('.env').write('REDDIT_USERNAME = ""\nREDDIT_CLIENT_ID = ""\nREDDIT_CLIENT_SECRET = ""\nREDDIT_REFRESH_TOKEN = ""\n').catch(
         () => {
-            console.log('Failed to create default .env file.\nPlease create a .env file with the following environment variables: "REDDIT_USERNAME", "REDDIT_CLIENT_ID", "REDDIT_CLIENT_SECRET", "REDDIT_REFRESH_TOKEN".\n',);
+            console.error('Failed. Please create a .env file with the following environment variables: "REDDIT_USERNAME", "REDDIT_CLIENT_ID", "REDDIT_CLIENT_SECRET", "REDDIT_REFRESH_TOKEN".\n',);
         }
     );
     process.exit(1);
@@ -26,7 +24,7 @@ if (dotenv.config().error) {
 const REDDIT_USERNAME = process.env.REDDIT_USERNAME;
 const REDDIT_CLIENT_ID = process.env.REDDIT_CLIENT_ID;
 const REDDIT_CLIENT_SECRET = process.env.REDDIT_CLIENT_SECRET;
-const REDDIT_REFRESH_TOKEN = process.env.REFRESH_TOKEN;
+const REDDIT_REFRESH_TOKEN = process.env.REDDIT_REFRESH_TOKEN;
 const REDDIT_APP_NAME = 'reddit-save';
 const USER_AGENT = `${os.platform()}:${REDDIT_APP_NAME}:${version} (by /u/${REDDIT_USERNAME})`;
 
