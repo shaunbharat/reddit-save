@@ -40,9 +40,11 @@ const reddit = new snoowrap({
 
 reddit.config({ continueAfterRatelimitError: true });
 
+// const output_directory = 'posts_test';
 const output_directory = 'posts';
 
 (async function Main() {
+    // await DownloadAll('test.csv');
     // await DownloadAll('posts/failed.csv');
     await DownloadAll('data/hidden_posts.csv');
 })();
@@ -144,13 +146,11 @@ async function DownloadAll(filename: string) {
             if (!Post.content.thumbnail.includes('http')) {
                 try { await DownloadThumbnail(Post.content.thumbnail, post_directory); } catch (error) { } // ignore thumbnail if it fails, or if there is no link
             }
-            await exec(`gallery-dl ${Post.content.url} -D ${post_directory}`); // uppercase D for exact directory
+            await exec(`gallery-dl "${Post.content.url}" -D "${post_directory}"`); // uppercase D for exact directory
             console.log(`[${Post.data.id}] Downloaded. ${remaining} remaining.`);
         } catch (error) {
             failed.push(id + ',' + 'https://www.reddit.com' + Post.data.permalink); // no extra slash because permalink already has one
             console.log(`[${Post.data.id}] Failed. ${remaining} remaining.`);
-            console.log(Post);// debug
-            console.log(error); // debug
             continue;
         }
 
