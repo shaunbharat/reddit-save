@@ -8,7 +8,7 @@ data/
 *.env
 
 # The resulting posts directory contains the downloaded content and data.
-posts/
+posts*/
 
 # The gallery-dl binary.
 gallery-dl*
